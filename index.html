@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Online Book store</title>
+    <style>
+        .header{
+            background: orange;
+            height:80px;
+            display:flex;
+            align-items: center;
+
+        }
+        .logo{
+            width:15px;
+            text-align: center;
+        }
+        .logo img{
+            width: 70px;
+            height: 70px;
+        }
+        .webname{
+            flex:1;
+            text-align: center;
+        }
+        .title{
+            flex:1;
+            text-align: center;
+        }
+        .menu{
+            background: peachpuff;
+            align-items: center;
+            height: 80px;
+            display: flex;
+            justify-content: space-around;
+            height: 50px;
+
+        }
+        .menu a{
+            text-decoration: none;
+            color:black;
+           font-weight: bold;
+            justify-content: space-around;
+        }
+        .left{
+            width: 10%;
+            text-align: left;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+                }
+                .left a{
+                    text-decoration: none;  
+                font-size: 22px;
+                line-height: 2;
+                }
+            .right{
+                flex: 1;
+                border: 1px solid black;
+            }
+            .right iframe{
+                width: 100%;
+                height: 100%;
+                border: none;
+            }
+        .main{
+            display: flex;
+            height: 400px;
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="collegelogo.jpeg" alt="College Logo">
+        </div>
+        <div class="webname">
+           ONLINE BOOK STORE
+        </div>  
+    </div>
+    <div class="menu">
+        <a href="home.html" target="content">Home</a>
+        <a href="login.html" target="content">Login</a>  
+        <a href="registration.html" target="content">Registration</a>
+        <a href="catalogue.html" target="content">Catalogue</a>
+        <a href="cart.html" target="content">Cart</a>
+    </div>
+    <div class="main">
+        <div class="left">
+            <a href="cse.html" target="content">CSE</a>
+
+            <a href="ECE.html" target="content">ECE</a>
+
+            <a href="mechanics.html" target="content">Mechanics</a>
+
+            <a href="civil.html" target="content">Civil</a>
+        </p>
+        </div>
+        <div class="right">
+            <iframe src="home.html" name="content"></iframe>
+
+            
+        </div>
+    </div>
+
+    
+</body>
+</html>
