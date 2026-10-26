@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CATALOGUE PAGE</title>
+</head>
+    <body>
+        <center>
+            <table border=1>
+                <tr>
+                    <th> Book Preview </th>
+                    <th> Book Details </th>
+                    <th> Price </th>
+                    <th> Payment </th>
+                </tr>
+                <tr>
+                    <html>
+                    <td> <img src="hanumanchalisa.jpg" width=100 height=50> </img> </td>
+                    <td>
+                        <pre> <font face="comic sans ms" size=4 color="green" > book:हनुमान चालीसा:गोस्वामी तुलसीदास</font> </pre>
+                    </td>
+                    <td>&nbsp;$40 &nbsp; </td>
+                    <td> &nbsp; &nbsp; <a href="cart.html" target="_blank"> <img src="addtocart.png"
+                                width="150" height="100"></img> </a> &nbsp; &nbsp; </td>
+                </tr>
+                <tr>
+                    <td> <img src="mahabharat.jpg" width=100 height=50> </img> </td>
+                    <td>
+                        <pre> <font face="comic sans ms" size=4 color="green" > Book:महाभारत:महर्षि वेदव्यास</font> </pre>
+                    </td>
+                    <td>&nbsp; $40 &nbsp;</td>
+                    <td> &nbsp; &nbsp; <a href="cart.html" target="_blank"> <img src="addtocart.png"
+                                width="150" height="100"></img> </a> &nbsp; &nbsp; </td>
+                </tr>
+            </table>
+        </center>
+    </body>
+
+</html>
