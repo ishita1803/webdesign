@@ -1,0 +1,767 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#faf8ff">
+  <meta name="description" content="Ishita Prajapati's portfolio — B.Tech CSIT student, aspiring software developer, and web development enthusiast.">
+  <title>Ishita Prajapati — Portfolio</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* Additional styles specific to the Connect card */
+    .connect-card {
+      width: 100%;
+      max-width: 940px;
+      margin: 40px auto 0;
+      padding: 40px;
+      background: var(--bg-card, #fff);
+      color: var(--text-primary, #1b1f3b);
+      border: 1px solid var(--border, #e0dcea);
+      border-radius: 22px;
+      box-shadow: var(--shadow-md, 0 4px 20px rgba(27,31,59,.08));
+    }
+
+    .connect-profile {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin-bottom: 28px;
+    }
+
+    .connect-photo {
+      width: 120px;
+      height: 120px;
+      flex: 0 0 120px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+    }
+
+    .connect-profile-copy { min-width: 0; }
+
+    .connect-profile-copy h3 {
+      margin: 0 0 6px;
+      color: var(--text-primary, #1b1f3b);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      line-height: 1.3;
+    }
+
+    .connect-profile-copy p {
+      margin: 0;
+      color: var(--text-muted, #7d809a);
+    }
+
+    .connect-intro {
+      margin: 0 0 30px;
+      color: var(--text-secondary, #4a4e6a);
+      line-height: 1.8;
+    }
+
+    .connect-details {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .connect-detail {
+      display: grid;
+      grid-template-columns: 50px minmax(0, 1fr);
+      align-items: center;
+      gap: 18px;
+      min-width: 0;
+    }
+
+    .connect-detail-icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: var(--accent-soft, #e5ddf8);
+      color: var(--accent, #7c6bbf);
+    }
+
+    .connect-detail-icon svg {
+      width: 23px;
+      height: 23px;
+      fill: currentColor;
+    }
+
+    .connect-detail-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      min-width: 0;
+    }
+
+    .connect-label {
+      color: var(--text-muted, #7d809a);
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+
+    .connect-value {
+      color: var(--text-primary, #1b1f3b);
+      font-size: 1rem;
+      line-height: 1.55;
+      overflow-wrap: anywhere;
+    }
+
+    a.connect-value:hover { color: var(--accent, #7c6bbf); }
+
+    .connect-email-row {
+      grid-template-columns: 50px minmax(0, 1fr) 42px;
+    }
+
+    .copy-email-button {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      justify-self: end;
+      border: 1px solid var(--border, #e0dcea);
+      border-radius: 12px;
+      background: var(--bg-primary, #faf8ff);
+      color: var(--text-secondary, #4a4e6a);
+      cursor: pointer;
+    }
+
+    .copy-email-button:hover {
+      background: var(--accent-soft, #e5ddf8);
+      color: var(--accent, #7c6bbf);
+    }
+
+    .copy-email-button svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .copy-email-feedback {
+      grid-column: 2 / -1;
+      color: var(--accent, #7c6bbf);
+      font-size: .82rem;
+    }
+
+    .connect-divider {
+      height: 1px;
+      margin: 34px 0 26px;
+      background: var(--border, #e0dcea);
+    }
+
+    .connect-socials {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .connect-social-button {
+      width: 50px;
+      height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 50px;
+      border: 1px solid var(--border, #e0dcea);
+      border-radius: 50%;
+      background: var(--bg-primary, #faf8ff);
+      color: var(--text-secondary, #4a4e6a);
+      transition: transform .2s ease, background .2s ease, color .2s ease;
+    }
+
+    .connect-social-button:hover {
+      background: var(--accent-soft, #e5ddf8);
+      color: var(--accent, #7c6bbf);
+      transform: translateY(-3px);
+    }
+
+    .connect-social-button svg {
+      width: 23px;
+      height: 23px;
+      fill: currentColor;
+    }
+
+    .connect-social-button:focus-visible,
+    .copy-email-button:focus-visible {
+      outline: 3px solid var(--accent, #7c6bbf);
+      outline-offset: 3px;
+    }
+
+    .connect-section { background: var(--bg-primary); }
+
+    .edu-table { display: none; }
+
+    @media (max-width: 600px) {
+      .connect-card {
+        padding: 24px 18px;
+        margin-top: 28px;
+        border-radius: 18px;
+      }
+
+      .connect-profile { gap: 15px; }
+
+      .connect-photo {
+        width: 82px;
+        height: 82px;
+        flex-basis: 82px;
+      }
+
+      .connect-profile-copy h3 { font-size: 1.35rem; }
+      .connect-profile-copy p { font-size: .88rem; }
+      .connect-intro { font-size: .96rem; }
+
+      .connect-detail {
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 12px;
+      }
+
+      .connect-detail-icon {
+        width: 42px;
+        height: 42px;
+      }
+
+      .connect-detail-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .connect-value { font-size: .9rem; }
+
+      .connect-email-row {
+        grid-template-columns: 42px minmax(0, 1fr) 36px;
+        gap: 9px;
+      }
+
+      .copy-email-button {
+        width: 36px;
+        height: 36px;
+      }
+
+      .connect-socials { gap: 12px; }
+
+      .connect-social-button {
+        width: 46px;
+        height: 46px;
+        flex-basis: 46px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header id="site-header" class="site-header">
+    <div class="container nav-container">
+      <a href="#home" class="logo" aria-label="Ishita Prajapati - Home">
+        <span class="logo-icon">IP</span>
+        <span class="logo-text">Ishita<span class="logo-accent">.</span></span>
+      </a>
+
+      <nav id="main-nav" class="main-nav" aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#connect" class="nav-link">Connect</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
+              <span class="theme-icon theme-icon--light" aria-hidden="true">&#9790;</span>
+              <span class="theme-icon theme-icon--dark" aria-hidden="true">&#9728;</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <button id="hamburger" class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section id="home" class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <p class="hero-greeting">Hello, I'm</p>
+          <h1 class="hero-name">Ishita Prajapati</h1>
+          <p class="hero-subtitle">B.Tech CSIT Student &nbsp;|&nbsp; Aspiring Software Developer</p>
+          <p class="hero-description">
+            I'm a passionate student exploring technology, web development,
+            and creative problem-solving. I love turning ideas into well-crafted
+            digital experiences and am always eager to learn something new.
+          </p>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">Explore My Work</a>
+            <a href="#contact" class="btn btn-secondary">Contact Me</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="avatar-ring">
+            <img src="myimage.jpeg" alt="Ishita Prajapati" class="profile-photo">
+          </div>
+          <div class="hero-blob hero-blob--1"></div>
+          <div class="hero-blob hero-blob--2"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about-section">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about-grid">
+          <article class="about-text">
+            <p>
+              I am <strong>Ishita Prajapati</strong>, a B.Tech Computer Science
+              and Information Technology student at
+              <strong>GL Bajaj Institute of Technology and Management</strong>,
+              Greater Noida. I have a strong interest in web development,
+              programming, and creative design.
+            </p>
+            <p>
+              I enjoy building clean, user-friendly websites and applications.
+              Beyond coding, I love reading books and exploring new technologies
+              to expand my skill set. My goal is to become a skilled software
+              developer and build useful, creative digital products.
+            </p>
+          </article>
+
+          <aside class="profile-card">
+            <div class="profile-card__avatar" aria-hidden="true">IP</div>
+            <h3 class="profile-card__name">Ishita Prajapati</h3>
+            <ul class="profile-card__details">
+              <li>
+                <span class="detail-label">Degree</span>
+                <span class="detail-value">B.Tech — CSIT</span>
+              </li>
+              <li>
+                <span class="detail-label">College</span>
+                <span class="detail-value">GL Bajaj Institute of Technology and Management</span>
+              </li>
+              <li>
+                <span class="detail-label">Location</span>
+                <span class="detail-value">Greater Noida, Uttar Pradesh, India</span>
+              </li>
+              <li>
+                <span class="detail-label">Interests</span>
+                <span class="detail-value">Web Development, Programming, Reading, Creative Design</span>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="section education-section">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+
+        <div class="timeline">
+          <article class="timeline-item timeline-item--highlight">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <span class="timeline-badge">Currently Pursuing</span>
+              <h3 class="timeline-title">B.Tech — Computer Science &amp; Information Technology</h3>
+              <p class="timeline-institution">GL Bajaj Institute of Technology and Management, Greater Noida</p>
+              <p class="timeline-year">2025–2029</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <h3 class="timeline-title">Intermediate</h3>
+              <p class="timeline-institution">City Montessori School</p>
+              <p class="timeline-year">2024</p>
+              <p class="timeline-result">Percentage: <strong>94%</strong></p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <h3 class="timeline-title">High School</h3>
+              <p class="timeline-institution">City Montessori School</p>
+              <p class="timeline-year">2022</p>
+              <p class="timeline-result">Percentage: <strong>97.4%</strong></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section skills-section">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-subtitle">Technologies I'm learning and working with.</p>
+
+        <div class="skills-grid">
+          <article class="skill-card">
+            <div class="skill-icon" aria-hidden="true">&lt;/&gt;</div>
+            <h3 class="skill-name">HTML</h3>
+            <div class="progress-track" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="HTML proficiency">
+              <div class="progress-fill" style="--progress:80%"></div>
+            </div>
+            <span class="skill-level">80%</span>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon" aria-hidden="true">#</div>
+            <h3 class="skill-name">CSS</h3>
+            <div class="progress-track" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="CSS proficiency">
+              <div class="progress-fill" style="--progress:70%"></div>
+            </div>
+            <span class="skill-level">70%</span>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon" aria-hidden="true">JS</div>
+            <h3 class="skill-name">JavaScript</h3>
+            <div class="progress-track" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="JavaScript proficiency">
+              <div class="progress-fill" style="--progress:60%"></div>
+            </div>
+            <span class="skill-level">60%</span>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon" aria-hidden="true">C</div>
+            <h3 class="skill-name">C</h3>
+            <div class="progress-track" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="C proficiency">
+              <div class="progress-fill" style="--progress:85%"></div>
+            </div>
+            <span class="skill-level">85%</span>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon" aria-hidden="true">C++</div>
+            <h3 class="skill-name">C++</h3>
+            <div class="progress-track" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="C++ proficiency">
+              <div class="progress-fill" style="--progress:75%"></div>
+            </div>
+            <span class="skill-level">75%</span>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon" aria-hidden="true">Py</div>
+            <h3 class="skill-name">Python</h3>
+            <div class="progress-track" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" aria-label="Python proficiency">
+              <div class="progress-fill" style="--progress:55%"></div>
+            </div>
+            <span class="skill-level">55%</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section projects-section">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">&#128202;</div>
+            <h3 class="project-title">ResumeAI</h3>
+            <p class="project-description">
+              An AI-assisted resume analysis and career guidance project designed
+              to help users understand their skills, explore suitable jobs,
+              identify skill gaps, and plan their learning journey.
+            </p>
+            <ul class="project-tags">
+              <li>AI</li><li>JavaScript</li><li>HTML</li><li>CSS</li>
+            </ul>
+            <a href="https://github.com/ishita1803/ResumeAi" class="btn btn-small" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">&#127912;</div>
+            <h3 class="project-title">Web Design</h3>
+            <p class="project-description">
+              A collection of web design work demonstrating HTML, CSS,
+              webpage structure, styling, and frontend development.
+            </p>
+            <ul class="project-tags">
+              <li>HTML</li><li>CSS</li><li>Responsive Design</li>
+            </ul>
+            <a href="https://github.com/ishita1803/webdesign" class="btn btn-small" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">&#128187;</div>
+            <h3 class="project-title">Personal Portfolio <span class="badge in-progress">In Progress</span></h3>
+            <p class="project-description">
+              This website showcases my skills, education, projects, and
+              developer profiles. It is built with HTML, CSS, and JavaScript.
+            </p>
+            <ul class="project-tags">
+              <li>HTML</li><li>CSS</li><li>JavaScript</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONNECT WITH ME -->
+    <section id="connect" class="section connect-section">
+      <div class="container">
+        <h2 class="section-title">Connect With Me</h2>
+
+        <div class="connect-card">
+          <div class="connect-profile">
+            <img src="myimage.jpeg" alt="Ishita Prajapati" class="connect-photo">
+            <div class="connect-profile-copy">
+              <h3>Ishita Prajapati</h3>
+              <p>B.Tech CSIT Student · Aspiring Web Developer</p>
+            </div>
+          </div>
+
+          <p class="connect-intro">
+            I'm always excited to connect with fellow developers, explore new
+            opportunities, and collaborate on creative tech projects. Feel
+            free to reach out!
+          </p>
+
+          <div class="connect-details">
+            <div class="connect-detail connect-email-row">
+              <span class="connect-detail-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M2 4h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm10 9L2 6v2l10 7 10-7V6l-10 7z"/></svg>
+              </span>
+              <div class="connect-detail-copy">
+                <span class="connect-label">EMAIL ME</span>
+                <a class="connect-value" href="mailto:ishitaprajapati1803@gmail.com">ishitaprajapati1803@gmail.com</a>
+              </div>
+              <button class="copy-email-button" id="copy-email-button" type="button" aria-label="Copy email address" title="Copy email address">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2"></rect><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h3"></path></svg>
+              </button>
+              <span id="copy-email-feedback" class="copy-email-feedback" role="status" aria-live="polite"></span>
+            </div>
+
+            <div class="connect-detail">
+              <span class="connect-detail-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+              </span>
+              <div class="connect-detail-copy">
+                <span class="connect-label">CAMPUS &amp; LOCATION</span>
+                <span class="connect-value">GL Bajaj Institute of Technology and Management, Greater Noida, India</span>
+              </div>
+            </div>
+
+            <div class="connect-detail">
+              <span class="connect-detail-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 8-4v7h2V7L12 2zm-7 9v5l7 4 7-4v-5l-7 4-7-4z"/></svg>
+              </span>
+              <div class="connect-detail-copy">
+                <span class="connect-label">LEETCODE PROFILE</span>
+                <a class="connect-value" href="https://leetcode.com/u/ishi_here/" target="_blank" rel="noopener noreferrer">leetcode.com/u/ishi_here/</a>
+              </div>
+            </div>
+
+            <div class="connect-detail">
+              <span class="connect-detail-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM3 9h4v12H3V9zm6 0h4v2h.1c.6-1.1 1.8-2.3 3.9-2.3 4.2 0 5 2.7 5 6.2V21h-4v-5.4c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21H9V9z"/></svg>
+              </span>
+              <div class="connect-detail-copy">
+                <span class="connect-label">LINKEDIN PROFILE</span>
+                <a class="connect-value" href="https://www.linkedin.com/in/ishita-p-67a49032b/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ishita-p-67a49032b/</a>
+              </div>
+            </div>
+
+            <div class="connect-detail">
+              <span class="connect-detail-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 .5A11.5 11.5 0 0 0 8.4 22.9c.6.1.8-.3.8-.6v-2.1c-3.3.7-4-1.4-4-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17.8 4.9 18.8 5.2 18.8 5.2c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.3.8 1 .8 2.2v3.1c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>
+              </span>
+              <div class="connect-detail-copy">
+                <span class="connect-label">GITHUB PROFILE</span>
+                <a class="connect-value" href="https://github.com/ishita1803" target="_blank" rel="noopener noreferrer">github.com/ishita1803</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="connect-divider"></div>
+
+          <div class="connect-socials" aria-label="Social profiles">
+            <a class="connect-social-button" href="https://github.com/ishita1803" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 8.4 22.9c.6.1.8-.3.8-.6v-2.1c-3.3.7-4-1.4-4-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17.8 4.9 18.8 5.2 18.8 5.2c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.3.8 1 .8 2.2v3.1c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>
+            </a>
+
+            <a class="connect-social-button" href="https://www.linkedin.com/in/ishita-p-67a49032b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM3 9h4v12H3V9zm6 0h4v2h.1c.6-1.1 1.8-2.3 3.9-2.3 4.2 0 5 2.7 5 6.2V21h-4v-5.4c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21H9V9z"/></svg>
+            </a>
+
+            <a class="connect-social-button" href="https://leetcode.com/u/ishi_here/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode" title="LeetCode">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 17.5a1.5 1.5 0 0 1-1.5 1.5H8a1.5 1.5 0 0 1 0-3h7a1.5 1.5 0 0 1 1.5 1.5zM7.1 12l4.6-4.6 2.1 2.1L9.2 14l-2.1-2zm9.8-5.5 2.1 2.1-2.1 2.1-2.1-2.1 2.1-2.1zM12 1.5 1.5 7.5v9L12 22.5l10.5-6v-9L12 1.5z"/></svg>
+            </a>
+
+            <a class="connect-social-button" href="https://www.instagram.com/ixxeeshyy/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.5-3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">Have a question or want to connect? Drop me a message!</p>
+
+        
+        <form id="contact-form">
+            <input
+                type="hidden"
+                name="access_key"
+                value="3ef60392-24c5-4c5b-943c-dcda3783cb8f"
+            >
+
+            <input
+                type="hidden"
+                name="subject"
+                value="New Portfolio Contact Message"
+            >
+
+            <input
+                type="hidden"
+                name="from_name"
+                value="Ishita's Portfolio"
+            >
+
+            <!-- Honeypot field for basic bot protection -->
+            <input
+                type="checkbox"
+                name="botcheck"
+                style="display: none;"
+                tabindex="-1"
+            >
+
+            <div class="form-group">
+                <label for="contact-name">Your Name</label>
+                <input
+                    type="text"
+                    id="contact-name"
+                    name="name"
+                    placeholder="Enter your name"
+                    required
+                >
+                <span id="name-error" class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="contact-email">Your Email</label>
+                <input
+                    type="email"
+                    id="contact-email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+                <span id="email-error" class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="contact-message">Your Message</label>
+                <textarea
+                    id="contact-message"
+                    name="message"
+                    rows="5"
+                    placeholder="Write your message here..."
+                    required
+                ></textarea>
+                <span id="message-error" class="error-message"></span>
+            </div>
+
+            <button type="submit" id="btn-submit" class="btn">
+                Send Message
+            </button>
+
+            <p id="form-success" role="status" hidden>
+                Thank you! Your message has been sent successfully. 💗
+            </p>
+
+            <p id="form-error" role="alert" hidden>
+                Sorry, your message couldn't be sent. Please try again.
+            </p>
+        </form>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p class="footer-name">Ishita Prajapati</p>
+      <p class="footer-copy">&copy; <span id="footer-year"></span> All rights reserved.</p>
+
+      <div class="footer-links">
+        <a href="https://github.com/ishita1803" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/ishita-p-67a49032b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:ishitaprajapati1803@gmail.com">Email</a>
+      </div>
+
+      <a href="#home" class="back-to-top" aria-label="Back to top">&#8679; Top</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+    // Copy email address with graceful fallback.
+    (function () {
+      const button = document.getElementById("copy-email-button");
+      const feedback = document.getElementById("copy-email-feedback");
+      const email = "ishitaprajapati1803@gmail.com";
+
+      if (!button || !feedback) return;
+
+      button.addEventListener("click", async function () {
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(email);
+          } else {
+            const temporaryInput = document.createElement("textarea");
+            temporaryInput.value = email;
+            temporaryInput.style.position = "fixed";
+            temporaryInput.style.opacity = "0";
+            document.body.appendChild(temporaryInput);
+            temporaryInput.select();
+            const copied = document.execCommand("copy");
+            temporaryInput.remove();
+
+            if (!copied) throw new Error("Copy failed");
+          }
+
+          feedback.textContent = "Email copied!";
+        } catch (error) {
+          feedback.textContent = "Please copy the email address manually.";
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
